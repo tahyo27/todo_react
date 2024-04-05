@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import setRandomBackground from './background';
 import Greetings from "./greetings";
 import Quotes from './quotes';
+import Todo from './todo';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <div>
         <Quotes />
       </div>
+      <Todo />
     </div>
   );
 }
