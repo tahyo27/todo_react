@@ -1,0 +1,38 @@
+.greetings_box {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 80vh;
+    color: whitesmoke;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.login_box {
+    display: flex;
+    font-size : 4rem;
+}
+.input_box {
+    text-align: center;
+    color:whitesmoke;
+    font-size:3rem;
+    width:10rem;
+    height:3rem;
+    margin-top: 1rem;
+    border: none;
+    border-bottom: 0.2rem solid whitesmoke;
+    background-color: transparent; /*투명한 바탕*/
+    outline: none; /* 파란색 포커스 효과 없앰 */
+    caret-color: whitesmoke; /* 흰색 커서 설정 */
+}
+.clock_box {
+    font-size : 11rem;
+}
+
+.message_box {
+    display: flex;
+}
+.message {
+    font-size : 4rem;
+}

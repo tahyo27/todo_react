@@ -10,11 +10,11 @@ function Todo() {
           console.log("로컬 저장 테스트"); 
           const storedTodosKey = `${storedUsername}_todos`;
           const storedTodos = JSON.parse(localStorage.getItem(storedTodosKey));
-          console.log("length" + storedTodos.length);
-          if(storedTodos.length !== 0) {
+          //console.log("length" + storedTodos.length);
+          if(storedTodos !== null) {
             setTodos(storedTodos);
           }
-          console.log(storedTodos);
+          console.log("storedTodos 체크 값 없으면 안보임" + storedTodos);
           // 저장된 todo가 있으면 JSON.parse를 사용해 배열로 변환
       } else {
           console.log("값 널임 테스트");
