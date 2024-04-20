@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from "react";
+import styles from "./todo.module.css";
 
 function Todo() {
     const [todos, setTodos] = useState([]);
     const [inputValue, setInputValue] = useState("");
-    const storedUsername = localStorage.getItem("username"); 
+    const storedUsername = localStorage.getItem("username");
+    const [showModal, setShowModal] = useState(false);
     
     useEffect(() => {
       if(storedUsername != null) {
@@ -39,19 +41,47 @@ function Todo() {
         }
     }, [todos, storedUsername]);
 
+    const handleTodoClick = () => {
+      setShowModal(true);
+    };
+  
+    const closeModal = () => {
+      setShowModal(false);
+    };
+/*<div>
+          <input 
+          type="text"
+          value={inputValue}
+          onChange={e => setInputValue(e.target.value)}
+          />
+        <button onClick={addTodo}>Add Todo</button>
+        <ul>
+          {todos.map((todo, index) => (
+            <li key={index}>{todo}</li>
+          ))}
+        </ul>
+      </div>*/
     return (
-    <div>
-        <input 
-        type="text"
-        value={inputValue}
-        onChange={e => setInputValue(e.target.value)}
-        />
-      <button onClick={addTodo}>Add Todo</button>
-      <ul>
-        {todos.map((todo, index) => (
-          <li key={index}>{todo}</li>
-        ))}
-      </ul>
+    <div className={styles.todo_input_box}>
+      <div className={styles.todo_box} onClick={handleTodoClick}>ToDo</div>
+      {showModal && (
+        <div className={styles.modal}>
+          <div className={styles.modal_content}>
+            <span className={styles.close} onClick={closeModal}>&times;</span>
+            <input 
+            type="text"
+            value={inputValue}
+            onChange={e => setInputValue(e.target.value)}
+            />
+            <button onClick={addTodo}>Add Todo</button>
+            <ul>
+              {todos.map((todo, index) => (
+                <li key={index}>{todo}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
     );
 }

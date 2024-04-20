@@ -1,0 +1,8 @@
+.quotes_box {
+    display: flex;
+    justify-content: center;
+    color: whitesmoke;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: auto;
+}

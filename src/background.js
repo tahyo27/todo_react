@@ -11,7 +11,7 @@ const setRandomBackground = () => {
     document.body.style.backgroundPosition = "center";
     document.body.style.height = "100vh";
     document.body.style.width = "100vw";
-    ///document.body.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
   };
   
   export default setRandomBackground;

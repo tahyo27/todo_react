@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useMemo} from "react";
+import styles from "./quotes.module.css";
 
 function Quotes() {
     const quotes = useMemo(() =>[
@@ -62,7 +63,7 @@ function Quotes() {
     }, [quotes]);
 
     return (
-        <div>{todaysQuote.quote} - {todaysQuote.author}</div>
+        <div className={styles.quotes_box}>{todaysQuote.quote} - {todaysQuote.author}</div>
     );
     
 }

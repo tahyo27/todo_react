@@ -14,6 +14,7 @@ function App() {
 
   return (
     <div>
+      <Weather />
       <div>
         <Greetings />
       </div>
@@ -21,7 +22,7 @@ function App() {
         <Quotes />
       </div>
       <Todo />
-      <Weather />
+      
     </div>
   );
 }
