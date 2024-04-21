@@ -48,19 +48,7 @@ function Todo() {
     const closeModal = () => {
       setShowModal(false);
     };
-/*<div>
-          <input 
-          type="text"
-          value={inputValue}
-          onChange={e => setInputValue(e.target.value)}
-          />
-        <button onClick={addTodo}>Add Todo</button>
-        <ul>
-          {todos.map((todo, index) => (
-            <li key={index}>{todo}</li>
-          ))}
-        </ul>
-      </div>*/
+
     return (
     <div className={styles.todo_input_box}>
       <div className={styles.todo_box} onClick={handleTodoClick}>ToDo</div>
@@ -68,17 +56,17 @@ function Todo() {
         <div className={styles.modal}>
           <div className={styles.modal_content}>
             <span className={styles.close} onClick={closeModal}>&times;</span>
-            <input 
-            type="text"
-            value={inputValue}
-            onChange={e => setInputValue(e.target.value)}
-            />
-            <button onClick={addTodo}>Add Todo</button>
             <ul>
               {todos.map((todo, index) => (
                 <li key={index}>{todo}</li>
               ))}
             </ul>
+            <input 
+            type="text"
+            value={inputValue}
+            onChange={e => setInputValue(e.target.value)}
+            className={styles.todo_input}/>
+            <button onClick={addTodo} className={styles.todo_button}>Add</button>
           </div>
         </div>
       )}

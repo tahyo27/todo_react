@@ -39,3 +39,26 @@
     right: 10px;
     cursor: pointer;
 }
+
+.todo_button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #007bff;
+    border-radius: 0 4px 4px 0;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.todo_button:hover {
+    background-color: #0056b3;
+}
+
+.todo_input {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
