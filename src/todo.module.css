@@ -31,6 +31,8 @@
     height: 100px;
     position: relative;
     overflow: auto; /*스크롤*/
+    display: flex;
+    flex-direction: column;
 }
   
 .close {
@@ -57,8 +59,60 @@
 
 .todo_input {
     padding: 0.5rem;
-    font-size: 0.8rem;
-    border: 2px solid #ddd;
-    border-radius: 4px 0 0 4px;
+    font-weight: 400;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
     outline: none;
+    width: 90%;
+    margin: auto;
 }
+.ul_box {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ul_box li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border-bottom: 1px solid #ccc;
+}
+.ul_box li:last-child {
+    border-bottom: none;
+}
+
+.ul_box li span {
+    margin-left: 1rem;
+    margin-right: 2rem;
+}
+
+.checkbox_wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+.checkbox_wrapper input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.todo_text {
+    flex: 1; /* 텍스트가 오른쪽으로 넘칠 경우를 대비하여 확장될 수 있도록 함 */
+}
+  
+.delete_button {
+    background-color: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+}
+  
+.delete_button:hover {
+    text-decoration: underline;
+}
+.completed {
+    text-decoration: line-through;
+    color: #999; /* 텍스트를 흐리게 표시하기 위한 색상 */
+    opacity: 0.7; /* 텍스트의 투명도 조절 */
+  }

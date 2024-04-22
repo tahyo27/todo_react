@@ -29,7 +29,8 @@ function Todo() {
 
     const addTodo = () => {
         if(inputValue.trim() !== "") {
-            setTodos(prevTodos => [...prevTodos, inputValue]);
+            setTodos(prevTodos => [...prevTodos,
+              {text: inputValue, completed:false}]);
             setInputValue(''); // 입력값 비우기
         }
         
@@ -49,6 +50,24 @@ function Todo() {
       setShowModal(false);
     };
 
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter') {
+        addTodo();
+      }
+    };
+
+    const toggleTodo = (index) => {
+      setTodos(prevTodos => {
+        const newTodos = [...prevTodos];
+        newTodos[index].completed = !newTodos[index].completed;
+        return newTodos;
+      });
+    };
+
+    const deleteTodo = (index) => {
+      setTodos(prevTodos => prevTodos.filter((_, i) => i !== index));
+    };
+
     return (
     <div className={styles.todo_input_box}>
       <div className={styles.todo_box} onClick={handleTodoClick}>ToDo</div>
@@ -56,17 +75,34 @@ function Todo() {
         <div className={styles.modal}>
           <div className={styles.modal_content}>
             <span className={styles.close} onClick={closeModal}>&times;</span>
-            <ul>
+            <ul className={styles.ul_box}>
+              <h2 style={{marginBottom: "1rem", padding: "0;"} }>Today</h2>
               {todos.map((todo, index) => (
-                <li key={index}>{todo}</li>
+                <li key={index}>
+                  <div className={styles.checkbox_wrapper}>
+                    <input
+                      type="checkbox"
+                      checked={todo.completed}
+                      onChange={() => toggleTodo(index)}
+                    />
+                    <span className={todo.completed ? `${styles.todo_text} ${styles.completed}` : styles.todo_text}>
+                      {todo.text}
+                    </span>
+                  </div>
+                  <button onClick={() => deleteTodo(index)} className={styles.delete_button}>
+                    X
+                  </button>
+                </li>
               ))}
             </ul>
             <input 
             type="text"
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="New Todo"
             className={styles.todo_input}/>
-            <button onClick={addTodo} className={styles.todo_button}>Add</button>
+            
           </div>
         </div>
       )}
