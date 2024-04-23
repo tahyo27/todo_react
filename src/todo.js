@@ -75,8 +75,8 @@ function Todo() {
         <div className={styles.modal}>
           <div className={styles.modal_content}>
             <span className={styles.close} onClick={closeModal}>&times;</span>
+            <div className={styles.today_box}>Today</div>
             <ul className={styles.ul_box}>
-              <h2 style={{marginBottom: "1rem", padding: "0;"} }>Today</h2>
               {todos.map((todo, index) => (
                 <li key={index}>
                   <div className={styles.checkbox_wrapper}>
