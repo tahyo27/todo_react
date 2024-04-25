@@ -51,9 +51,15 @@ function Weather() {
         <div>
             <div onClick={handleTodoClick}>
                 {weatherData && weatherData.main ? (
-                    <>Icon {weatherData.name}, {weatherData.main.temp}°C</>
+                    <div className={styles.weather_box}>
+                        <img src={`/icons/${weatherData.weather[0].icon}.png`} alt="" style={{ width: "6rem", height: "6rem" }} />
+                        <div className={styles.nt_box}>
+                            <div>{weatherData.name}</div>
+                            <div>{weatherData.main.temp}°C</div>
+                        </div> 
+                    </div>
                 ) : (
-                    <>Loading...</>
+                    <div>Loading...</div>
                 )}
             </div>
             {showModal && (
@@ -62,11 +68,23 @@ function Weather() {
                         <span className={styles.close} onClick={closeModal}>&times;</span>
                         <div>
                             {weatherData && weatherData.main ? (
-                                <>
-                                    <p>Weather: {weatherData.weather[0].main}</p>
-                                    <p>Temperature: {weatherData.main.temp}°C</p>
-                                    <p>Humidity: {weatherData.main.humidity}%</p>
-                                </>
+                                <div>
+                                    <div>
+                                        <div style={{fontSize:"1.5rem", fontWeight:"600"}}>{weatherData.name}, {weatherData.sys.country}</div>
+                                        <div style={{fontSize:"1rem", fontWeight:"400", color:"gray"}}>&nbsp;{weatherData.weather[0].description}</div>
+                                    </div>
+                                    <div className={styles.weatherModal_box}>
+                                        <div>
+                                            <img src={`/icons/${weatherData.weather[0].icon}.png`} alt="" style={{ width: "6rem", height: "6rem" }} />
+                                        </div>
+                                        <div>
+                                            <div>체감 온도: {weatherData.main.feels_like}°C</div>
+                                            <div>최고 온도: {weatherData.main.temp_max}°C</div>
+                                            <div>최저 온도: {weatherData.main.temp_min}°C</div>
+                                            <div>습도: {weatherData.main.humidity}%</div>
+                                        </div>
+                                    </div>
+                                </div>
                             ) : (
                                 <p>Loading...</p>
                             )}
