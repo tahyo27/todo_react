@@ -34,7 +34,9 @@
     font-weight: 600;
     font-size: 1.3rem;
 }
-
+.weather_box :hover {
+    cursor: pointer;
+}
 .nt_box{
     display:flex;
     flex-direction: column;
@@ -48,4 +50,8 @@
     justify-content: space-between;
     font-weight: 600;
     font-size: 1.2rem;
+}
+.weatherModal_box span {
+    color : slategrey;
+    font-weight: 600;
 }

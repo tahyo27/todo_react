@@ -7,9 +7,10 @@ import { faGear } from "@fortawesome/free-solid-svg-icons";
 function Greetings() {
   //username로그인 확인
   const USERNAME_KEY = "username";
-  const [isFormVisible, setisFormVisible] = useState(true);
+  const [isFormVisible, setIsFormVisible] = useState(true);
   const [time, setTime] = useState(getCurrentTime);
   const [message, setMessage] = useState(""); 
+  const [showOptions, setShowOptions] = useState(false);
   
   const storedUsername = localStorage.getItem(USERNAME_KEY);
   const hours = time.split(":");
@@ -50,12 +51,12 @@ function Greetings() {
   
   function storedCheck() {
     if(storedUsername !== null) {
-      setisFormVisible(false);
+      setIsFormVisible(false);
     }
   };
 
   function paintGreetings() {
-      setisFormVisible(false);
+      setIsFormVisible(false);
   };
 
   function getCurrentTime() {
@@ -64,6 +65,31 @@ function Greetings() {
     const minutes = String(date.getMinutes()).padStart(2,"0");
     return `${hours}:${minutes}`;
   }
+
+  const toggleOptions = () => {
+    setShowOptions(!showOptions);
+  };
+
+  const handleChange = () => {
+    // 변경 옵션을 선택할 때 실행 함수
+    localStorage.removeItem(USERNAME_KEY);
+    setIsFormVisible(true);
+    console.log('Change clicked');
+    setShowOptions(false);
+    
+  };
+
+  const handleDelete = () => {
+    // 삭제 옵션을 선택할 때 실행 함수
+    setIsFormVisible(true);
+    localStorage.removeItem(USERNAME_KEY);
+    const todo = localStorage.getItem(storedUsername + "_todos");
+    if(todo !== null) {
+      localStorage.removeItem(storedUsername + "_todos");
+    }
+    console.log('Delete clicked');
+    setShowOptions(false);
+  };
 
     return (
     <div className={styles.greetings_box}>
@@ -78,11 +104,15 @@ function Greetings() {
         ) : (
           <div className={styles.message_box}>
             <div className={styles.message}>{message} {storedUsername}님</div>
-            <div style={{
-              marginTop: "1.5rem",
-              marginLeft: "1rem",
-              fontSize: "2rem"
-            }}><FontAwesomeIcon icon={faGear} /></div>
+            <div  className={styles.icon_container} style={{marginTop: "1.5rem",marginLeft: "1rem",fontSize: "2rem"}}>
+              <FontAwesomeIcon icon={faGear} onClick={toggleOptions}/>
+              {showOptions && (
+              <div className={styles.options_container}>
+                <button onClick={handleDelete}>Delete</button> {/* Delete 버튼 */}
+                <button onClick={handleChange}>Change</button> {/* Change 버튼 */}
+              </div>
+              )}
+            </div>
           </div>
         ) 
         }

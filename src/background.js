@@ -3,7 +3,7 @@ const setRandomBackground = () => {
       "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg", "14.jpg"];
   
     const chosenImage = images[Math.floor(Math.random() * images.length)];
-    const bgImage = `/img/${chosenImage}`;
+    const bgImage = `https://tahyo27.github.io/todo_r/img/${chosenImage}`;
   
     document.body.style.backgroundImage = `url(${bgImage})`;
     document.body.style.backgroundSize = "cover";

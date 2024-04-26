@@ -52,7 +52,7 @@ function Weather() {
             <div onClick={handleTodoClick}>
                 {weatherData && weatherData.main ? (
                     <div className={styles.weather_box}>
-                        <img src={`/icons/${weatherData.weather[0].icon}.png`} alt="" style={{ width: "6rem", height: "6rem" }} />
+                        <img src={`https://tahyo27.github.io/todo_r/icons/${weatherData.weather[0].icon}.png`} alt="" style={{ width: "6rem", height: "6rem" }} />
                         <div className={styles.nt_box}>
                             <div>{weatherData.name}</div>
                             <div>{weatherData.main.temp}°C</div>
@@ -75,13 +75,13 @@ function Weather() {
                                     </div>
                                     <div className={styles.weatherModal_box}>
                                         <div>
-                                            <img src={`/icons/${weatherData.weather[0].icon}.png`} alt="" style={{ width: "6rem", height: "6rem" }} />
+                                            <img src={`https://tahyo27.github.io/todo_r/icons/${weatherData.weather[0].icon}.png`} alt="" style={{ width: "6rem", height: "6rem" }} />
                                         </div>
                                         <div>
-                                            <div>체감 온도: {weatherData.main.feels_like}°C</div>
-                                            <div>최고 온도: {weatherData.main.temp_max}°C</div>
-                                            <div>최저 온도: {weatherData.main.temp_min}°C</div>
-                                            <div>습도: {weatherData.main.humidity}%</div>
+                                            <div><span>체감 온도 </span>{weatherData.main.feels_like}°C</div>
+                                            <div><span>최고 온도 </span> {weatherData.main.temp_max}°C</div>
+                                            <div><span>최저 온도 </span> {weatherData.main.temp_min}°C</div>
+                                            <div><span>습도 </span> {weatherData.main.humidity}%</div>
                                         </div>
                                     </div>
                                 </div>

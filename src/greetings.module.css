@@ -36,3 +36,33 @@
 .message {
     font-size : 4rem;
 }
+
+.icon_container {
+    position: relative;
+}
+
+.options_container {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+}
+
+.options_container button {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 5px 10px;
+    text-align: left;
+    font-weight:600;
+    font-size: 0.9rem;
+}
+.options_container button:hover {
+    background-color: gray;
+}
